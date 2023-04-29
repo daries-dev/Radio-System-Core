@@ -24,14 +24,5 @@
 
     <instructions type="install">
 		<instruction type="file" application="radio">files_radio.tar</instruction>
-		<instruction type="database">acp/database/install_dev.daries.radio.php</instruction>
-		<instruction type="acpMenu" />
-		<instruction type="userGroupOption" />
-
-		<instruction type="acpTemplate" application="radio" run="standalone">acptemplates_radio.tar</instruction>
-
-		<instruction type="objectTypeDefinition" />
-
-		<instruction type="language" />
     </instructions>
 </package>
