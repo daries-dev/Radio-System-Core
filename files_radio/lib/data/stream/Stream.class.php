@@ -13,7 +13,7 @@ use wcf\system\request\IRouteController;
  * @license	Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0) <https://creativecommons.org/licenses/by-nd/4.0/>
  * 
  * @property-read   int $streamID       unique id of the stream
- * @property-read   string $streamTypeID     id of the `dev.daries.radio.stream.objectType` stream type
+ * @property-read   string $streamTypeID     id of the `dev.daries.radio.stream.type` stream type
  * @property-read   string  $streamname     name of the stream
  * @property-read   string  $host       host of the stream
  * @property-read   int $port       port of the stream
