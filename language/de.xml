@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd" languagecode="de" languagename="Deutsch" countrycode="de">
+    <import>
+        <category name="radio.acp.menu">
+            <item name="radio.acp.menu.link.radio"><![CDATA[Radio]]></item>
+            <item name="radio.acp.menu.link.stream"><![CDATA[Stream]]></item>
+            <item name="radio.acp.menu.link.stream.add"><![CDATA[Stream hinzufügen]]></item>
+            <item name="radio.acp.menu.link.stream.list"><![CDATA[Streams]]></item>
+        </category>
+
+        <category name="radio.acp.stream">
+            <item name="radio.acp.stream.add"><![CDATA[Stream hinzufügen]]></item>
+            <item name="radio.acp.stream.edit"><![CDATA[Stream bearbeiten]]></item>
+            <item name="radio.acp.stream.error.noStreamTypes"><![CDATA[Es muss mindestens ein Stream Type installiert sein.]]></item>
+            <item name="radio.acp.stream.list"><![CDATA[Streams]]></item>
+            <item name="radio.acp.stream.port.error.use"><![CDATA[Port wird bereits für dieses System verwendet.]]></item>
+            <item name="radio.acp.stream.showOrder.description"><![CDATA[Der Stream wird nach dem ausgewählten Stream angezeigt.]]></item>
+        </category>
+
+        <category name="radio.stream">
+            <item name="radio.stream.host"><![CDATA[Hostname]]></item>
+            <item name="radio.stream.port"><![CDATA[Port]]></item>
+            <item name="radio.stream.streamname"><![CDATA[Streamname]]></item>
+        </category>
+
+        <category name="wcf.acp.group">
+            <item name="wcf.acp.group.option.admin.radio.stream.canAddStream"><![CDATA[Kann neuen Stream erstellen]]></item>
+            <item name="wcf.acp.group.option.admin.radio.stream.canDeleteStream"><![CDATA[Kann Stream löschen]]></item>
+            <item name="wcf.acp.group.option.admin.radio.stream.canEditStream"><![CDATA[Kann Stream bearbeiten]]></item>
+            <item name="wcf.acp.group.option.category.admin.radio"><![CDATA[Radio]]></item>
+            <item name="wcf.acp.group.option.category.admin.radio.stream"><![CDATA[Stream]]></item>
+        </category>
+    </import>
+</language>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/5.4/acpMenu.xsd">
+	<import>
+        <!-- radio -->
+		<acpmenuitem name="radio.acp.menu.link.radio">
+			<icon>music</icon>
+		</acpmenuitem>
+        <!-- /radio -->
+
+        <!-- stream -->
+		<acpmenuitem name="radio.acp.menu.link.stream">
+			<parent>radio.acp.menu.link.radio</parent>
+			<showOrder>1</showOrder>
+		</acpmenuitem>
+		<acpmenuitem name="radio.acp.menu.link.stream.list">
+			<controller>radio\acp\page\StreamListPage</controller>
+			<parent>radio.acp.menu.link.stream</parent>
+			<showorder>1</showorder>
+			<permissions>admin.radio.stream.canEditStream</permissions>
+		</acpmenuitem>
+		<acpmenuitem name="radio.acp.menu.link.stream.add">
+			<controller>radio\acp\form\StreamAddForm</controller>
+			<parent>radio.acp.menu.link.stream.list</parent>
+			<permissions>admin.radio.stream.canAddStream</permissions>
+			<icon>plus</icon>
+		</acpmenuitem>
+        <!-- /stream -->
+    </import>
+</data>
