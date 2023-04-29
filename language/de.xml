@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/5.4/language.xsd" languagecode="de" languagename="Deutsch" countrycode="de">
+    <import>
+        <category name="radio.acp.menu">
+            <item name="radio.acp.menu.link.radio"><![CDATA[Radio]]></item>
+            <item name="radio.acp.menu.link.radio.stream"><![CDATA[Stream]]></item>
+            <item name="radio.acp.menu.link.radio.stream.add"><![CDATA[Stream hinzufügen]]></item>
+            <item name="radio.acp.menu.link.radio.stream.list"><![CDATA[Stream]]></item>
+        </category>
+
+        <category name="wcf.acp.group">
+            <item name="wcf.acp.group.option.admin.radio.stream.canAddStream"><![CDATA[Kann neuen Stream erstellen]]></item>
+            <item name="wcf.acp.group.option.admin.radio.stream.canDeleteStream"><![CDATA[Kann Stream löschen]]></item>
+            <item name="wcf.acp.group.option.admin.radio.stream.canEditStream"><![CDATA[Kann Stream bearbeiten]]></item>
+            <item name="wcf.acp.group.option.category.admin.radio"><![CDATA[Radio]]></item>
+            <item name="wcf.acp.group.option.category.admin.radio.stream"><![CDATA[Stream]]></item>
+        </category>
+    </import>
+</language>

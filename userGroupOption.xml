@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/5.4/userGroupOption.xsd">
+	<import>
+		<categories>
+			<category name="admin.radio">
+				<parent>admin</parent>
+			</category>
+			<category name="admin.radio.stream">
+				<parent>admin.radio</parent>
+			</category>
+        </categories>
+
+        <options>
+            <!-- admin.radio.stream -->
+			<option name="admin.radio.stream.canAddStream">
+				<categoryname>admin.radio.stream</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+				<usersonly>1</usersonly>
+			</option>
+			<option name="admin.radio.stream.canEditStream">
+				<categoryname>admin.radio.stream</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+				<usersonly>1</usersonly>
+			</option>
+			<option name="admin.radio.stream.canDeleteStream">
+				<categoryname>admin.radio.stream</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+				<usersonly>1</usersonly>
+			</option>
+            <!-- /admin.radio.stream -->
+        </options>
+    </import>
+</data>
