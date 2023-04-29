@@ -3,9 +3,24 @@
     <import>
         <category name="radio.acp.menu">
             <item name="radio.acp.menu.link.radio"><![CDATA[Radio]]></item>
-            <item name="radio.acp.menu.link.radio.stream"><![CDATA[Streams]]></item>
-            <item name="radio.acp.menu.link.radio.stream.add"><![CDATA[Add Stream]]></item>
-            <item name="radio.acp.menu.link.radio.stream.list"><![CDATA[Streams]]></item>
+            <item name="radio.acp.menu.link.stream"><![CDATA[Streams]]></item>
+            <item name="radio.acp.menu.link.stream.add"><![CDATA[Add Stream]]></item>
+            <item name="radio.acp.menu.link.stream.list"><![CDATA[Streams]]></item>
+        </category>
+
+        <category name="radio.acp.stream">
+            <item name="radio.acp.stream.add"><![CDATA[Add Stream]]></item>
+            <item name="radio.acp.stream.edit"><![CDATA[Edit Stream]]></item>
+            <item name="radio.acp.stream.error.noStreamTypes"><![CDATA[You need installed minimum one stream type.]]></item>
+            <item name="radio.acp.stream.list"><![CDATA[Streams]]></item>
+            <item name="radio.acp.stream.port.error.use"><![CDATA[Port is already used for this system.]]></item>
+            <item name="radio.acp.stream.showOrder.description"><![CDATA[The stream will be shown after the selected stream.]]></item>
+        </category>
+
+        <category name="radio.stream">
+            <item name="radio.stream.host"><![CDATA[Hostname]]></item>
+            <item name="radio.stream.port"><![CDATA[Port]]></item>
+            <item name="radio.stream.streamname"><![CDATA[Streamname]]></item>
         </category>
 
         <category name="wcf.acp.group">
@@ -16,4 +31,4 @@
             <item name="wcf.acp.group.option.category.admin.radio.stream"><![CDATA[Stream]]></item>
         </category>
     </import>
-</language
+</language>

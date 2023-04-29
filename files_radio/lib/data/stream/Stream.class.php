@@ -13,8 +13,8 @@ use wcf\system\request\IRouteController;
  * @license	Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0) <https://creativecommons.org/licenses/by-nd/4.0/>
  * 
  * @property-read   int $streamID       unique id of the stream
- * @property-read   int $objectTypeID       id of the `dev.daries.radio.stream.objectType` object type
- * @property-read   string  $streamName     name of the stream
+ * @property-read   string $streamTypeID     id of the `dev.daries.radio.stream.objectType` stream type
+ * @property-read   string  $streamname     name of the stream
  * @property-read   string  $host       host of the stream
  * @property-read   int $port       port of the stream
  * @property-read   int $showOrder      position of the stream in relation to its siblings
@@ -27,6 +27,6 @@ final class Stream extends DatabaseObject implements IRouteController
      */
     public function getTitle(): string
     {
-        return $this->streamName;
+        return $this->streamname;
     }
 }
