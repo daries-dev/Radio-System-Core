@@ -57,7 +57,7 @@ class StreamTypeHandler extends SingletonFactory
      */
     protected function init(): void
     {
-        $this->objectTypes = ObjectTypeCache::getInstance()->getObjectTypes('dev.daries.radio.stream.objectType');
+        $this->objectTypes = ObjectTypeCache::getInstance()->getObjectTypes('dev.daries.radio.stream.type');
         foreach ($this->objectTypes as $objectType) {
             $this->streamTypes[] = $objectType->getProcessor();
         }
