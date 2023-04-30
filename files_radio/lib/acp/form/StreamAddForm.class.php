@@ -10,11 +10,13 @@ use wcf\system\exception\NamedUserException;
 use wcf\system\form\builder\container\FormContainer;
 use wcf\system\form\builder\container\TabFormContainer;
 use wcf\system\form\builder\container\TabMenuFormContainer;
+use wcf\system\form\builder\data\processor\CustomFormDataProcessor;
 use wcf\system\form\builder\field\IntegerFormField;
 use wcf\system\form\builder\field\ShowOrderFormField;
 use wcf\system\form\builder\field\TextFormField;
 use wcf\system\form\builder\field\validation\FormFieldValidationError;
 use wcf\system\form\builder\field\validation\FormFieldValidator;
+use wcf\system\form\builder\IFormDocument;
 use wcf\system\request\IRouteController;
 use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
@@ -115,6 +117,17 @@ class StreamAddForm extends AbstractFormBuilderForm
                     ->options(new StreamList()),
             ]);
         $dataTab->appendChild($dataContainer);
+
+        $this->form->getDataHandler()->addProcessor(
+            new CustomFormDataProcessor(
+                'streamTypeID',
+                function (IFormDocument $document, array $parameters) {
+                    $parameters['data']['streamTypeID'] = $this->streamTypeID;
+
+                    return $parameters;
+                }
+            )
+        );
     }
 
     /**
