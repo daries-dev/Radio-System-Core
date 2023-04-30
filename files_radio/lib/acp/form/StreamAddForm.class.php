@@ -99,17 +99,22 @@ class StreamAddForm extends AbstractFormBuilderForm
                     ->maximum(65535)
                     ->required()
                     ->value(8000)
-                    ->addValidator(new FormFieldValidator('use', static function (IntegerFormField $formField) {
-                        $streamList = new StreamList();
-                        $streamList->getConditionBuilder()->add('port = ?', [$formField->getSaveValue()]);
+                    ->addValidator(new FormFieldValidator('use', function (IntegerFormField $formField) {
+                        if (
+                            $this->formObject === null ||
+                            $this->formObject->port !== $formField->getSaveValue()
+                        ) {
+                            $streamList = new StreamList();
+                            $streamList->getConditionBuilder()->add('port = ?', [$formField->getSaveValue()]);
 
-                        if ($streamList->countObjects()) {
-                            $formField->addValidationError(
-                                new FormFieldValidationError(
-                                    'use',
-                                    'radio.acp.stream.port.error.use'
-                                )
-                            );
+                            if ($streamList->countObjects()) {
+                                $formField->addValidationError(
+                                    new FormFieldValidationError(
+                                        'use',
+                                        'radio.acp.stream.port.error.use'
+                                    )
+                                );
+                            }
                         }
                     })),
                 ShowOrderFormField::create()
