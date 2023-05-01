@@ -2,6 +2,8 @@
 
 namespace radio\system\stream\type;
 
+use wcf\system\form\builder\container\TabTabMenuFormContainer;
+
 /**
  * Default interface for stream types.
  * 
@@ -15,4 +17,9 @@ interface IStreamType
      * Returns id of this stream type.
      */
     public function getStreamTypeID(): int;
+
+    /**
+     * Set the stream options for the given options tab.
+     */
+    public function setStreamAddOptions(TabTabMenuFormContainer $optionsTab): void;
 }

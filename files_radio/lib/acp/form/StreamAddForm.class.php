@@ -5,11 +5,13 @@ namespace radio\acp\form;
 use radio\data\stream\StreamAction;
 use radio\data\stream\StreamList;
 use radio\system\stream\type\StreamTypeHandler;
+use wcf\data\object\type\ObjectTypeCache;
 use wcf\form\AbstractFormBuilderForm;
 use wcf\system\exception\NamedUserException;
 use wcf\system\form\builder\container\FormContainer;
 use wcf\system\form\builder\container\TabFormContainer;
 use wcf\system\form\builder\container\TabMenuFormContainer;
+use wcf\system\form\builder\container\TabTabMenuFormContainer;
 use wcf\system\form\builder\data\processor\CustomFormDataProcessor;
 use wcf\system\form\builder\field\IntegerFormField;
 use wcf\system\form\builder\field\ShowOrderFormField;
@@ -74,8 +76,12 @@ class StreamAddForm extends AbstractFormBuilderForm
         $dataTab = TabFormContainer::create('dataTab');
         $dataTab->label('wcf.global.form.data');
 
+        $optionsTab = TabTabMenuFormContainer::create('optionsTab');
+        $optionsTab->label('wcf.form.field.option');
+
         $tabMenu->appendChildren([
             $dataTab,
+            $optionsTab,
         ]);
 
         // create data container
@@ -122,6 +128,10 @@ class StreamAddForm extends AbstractFormBuilderForm
                     ->options(new StreamList()),
             ]);
         $dataTab->appendChild($dataContainer);
+
+        // adding options from stream type class
+        $objectType = ObjectTypeCache::getInstance()->getObjectType($this->streamTypeID);
+        $objectType->getProcessor()->setStreamAddOptions($optionsTab);
 
         $this->form->getDataHandler()->addProcessor(
             new CustomFormDataProcessor(
