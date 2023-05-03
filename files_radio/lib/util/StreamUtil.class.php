@@ -16,6 +16,8 @@ final class StreamUtil
 {
     /**
      * Converts available options to $parameters['data']['configs'] variable
+     * 
+     * This method is fine used in CustomFormDataProcessor. To pack available options into the `configs` array.     
      */
     public static function convertOptionsToConfigs(IFormDocument $document, array $availableOptions, string $prefix, array &$parameters): void
     {
