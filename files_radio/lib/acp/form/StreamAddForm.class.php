@@ -4,7 +4,6 @@ namespace radio\acp\form;
 
 use radio\data\stream\StreamAction;
 use radio\data\stream\StreamList;
-use radio\system\stream\type\StreamTypeHandler;
 use wcf\data\object\type\ObjectTypeCache;
 use wcf\form\AbstractFormBuilderForm;
 use wcf\system\exception\NamedUserException;
@@ -160,7 +159,9 @@ class StreamAddForm extends AbstractFormBuilderForm
      */
     protected function readStreamType(): void
     {
-        if (!\count(StreamTypeHandler::getInstance()->getStreamTypes())) {
+        $objectTypes = ObjectTypeCache::getInstance()->getObjectTypes('dev.daries.radio.stream.type');
+
+        if (!\count($objectTypes)) {
             throw new NamedUserException(WCF::getLanguage()->get('radio.acp.stream.error.noStreamTypes'));
         }
 
@@ -169,16 +170,15 @@ class StreamAddForm extends AbstractFormBuilderForm
         }
 
         // work-around to force adding stream via dialog overlay
-        if (\count(StreamTypeHandler::getInstance()->getStreamTypes()) > 1 && empty($_POST) && !isset($_REQUEST['streamTypeID'])) {
+        if (\count($objectTypes) > 1 && empty($_POST) && !isset($_REQUEST['streamTypeID'])) {
             $parameters = [
                 'application' => 'radio',
                 'showStreamAddDialog' => 1,
             ];
             HeaderUtil::redirect(LinkHandler::getInstance()->getLink('StreamList', $parameters));
             exit;
-        } else if (\count(StreamTypeHandler::getInstance()->getStreamTypes()) == 1 && empty($_POST) && !isset($_REQUEST['streamTypeID'])) {
-            $streamTypes = StreamTypeHandler::getInstance()->getStreamTypes();
-            $firstStreamType = $streamTypes[0];
+        } else if (\count($objectTypes) == 1 && empty($_POST) && !isset($_REQUEST['streamTypeID'])) {
+            $firstStreamType = $objectTypes[0]->getProcessor();
             $this->streamTypeID = $firstStreamType->getStreamTypeID();
         }
     }
