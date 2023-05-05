@@ -14,12 +14,7 @@ use wcf\system\form\builder\container\TabTabMenuFormContainer;
 interface IStreamType
 {
     /**
-     * Returns id of this stream type.
+     * Returns name of this stream type
      */
-    public function getStreamTypeID(): int;
-
-    /**
-     * Set the stream options for the given options tab.
-     */
-    public function setStreamAddOptions(TabTabMenuFormContainer $optionsTab): void;
+    public function getStreamTypeName(): string;
 }

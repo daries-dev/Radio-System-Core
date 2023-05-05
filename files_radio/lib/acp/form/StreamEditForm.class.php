@@ -29,8 +29,6 @@ class StreamEditForm extends StreamAddForm
      */
     public function readParameters(): void
     {
-        parent::readParameters();
-
         if (isset($_REQUEST['id'])) {
             $this->formObject = new Stream($_REQUEST['id']);
             if (!$this->formObject->streamID) {
@@ -40,7 +38,9 @@ class StreamEditForm extends StreamAddForm
             throw new IllegalLinkException();
         }
 
-        $this->streamTypeID = $this->formObject->streamTypeID;
+        $this->objectTypeID = $this->formObject->objectTypeID;
+
+        parent::readParameters();
     }
 
     /**

@@ -14,6 +14,11 @@ use wcf\data\object\type\ObjectType;
 abstract class AbstractStreamType implements IStreamType
 {
     /**
+     * stream type name
+     */
+    protected string $streamTypeName = '';
+
+    /**
      * Creates an AbstractStreamType object.
      */
     public function __construct(readonly ObjectType $objectType)
@@ -23,8 +28,8 @@ abstract class AbstractStreamType implements IStreamType
     /**
      * @inheritDoc
      */
-    public function getStreamTypeID(): int
+    public function getStreamTypeName(): string
     {
-        return $this->objectType->objectTypeID;
+        return $this->streamTypeName;
     }
 }

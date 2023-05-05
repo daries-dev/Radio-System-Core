@@ -7,6 +7,7 @@
  */
 
 use wcf\system\database\table\column\DefaultFalseBooleanDatabaseTableColumn;
+use wcf\system\database\table\column\MediumtextDatabaseTableColumn;
 use wcf\system\database\table\column\NotNullInt10DatabaseTableColumn;
 use wcf\system\database\table\column\NotNullVarchar255DatabaseTableColumn;
 use wcf\system\database\table\column\ObjectIdDatabaseTableColumn;
@@ -18,13 +19,14 @@ return [
     DatabaseTable::create('radio1_stream')
         ->columns([
             ObjectIdDatabaseTableColumn::create('streamID'),
-            NotNullInt10DatabaseTableColumn::create('streamTypeID'),
+            NotNullInt10DatabaseTableColumn::create('objectTypeID'),
             NotNullVarchar255DatabaseTableColumn::create('streamname')
                 ->defaultValue(''),
             NotNullVarchar255DatabaseTableColumn::create('host')
                 ->defaultValue(''),
             NotNullInt10DatabaseTableColumn::create('port')
                 ->defaultValue(0),
+            MediumtextDatabaseTableColumn::create('config'),
             NotNullInt10DatabaseTableColumn::create('showOrder')
                 ->defaultValue(0),
             DefaultFalseBooleanDatabaseTableColumn::create('isDisabled'),
@@ -35,7 +37,7 @@ return [
         ])
         ->foreignKeys([
             DatabaseTableForeignKey::create()
-                ->columns(['streamTypeID'])
+                ->columns(['objectTypeID'])
                 ->referencedTable('wcf1_object_type')
                 ->referencedColumns(['objectTypeID'])
                 ->onDelete('CASCADE'),

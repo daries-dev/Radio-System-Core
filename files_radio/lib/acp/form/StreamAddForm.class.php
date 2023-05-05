@@ -4,8 +4,11 @@ namespace radio\acp\form;
 
 use radio\data\stream\StreamAction;
 use radio\data\stream\StreamList;
+use radio\system\stream\option\IStreamOption;
 use wcf\data\object\type\ObjectTypeCache;
+use wcf\form\AbstractForm;
 use wcf\form\AbstractFormBuilderForm;
+use wcf\system\exception\ImplementationException;
 use wcf\system\exception\NamedUserException;
 use wcf\system\form\builder\container\FormContainer;
 use wcf\system\form\builder\container\TabFormContainer;
@@ -22,6 +25,7 @@ use wcf\system\request\IRouteController;
 use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
 use wcf\util\HeaderUtil;
+use wcf\util\StringUtil;
 
 /**
  * Shows the stream add form.
@@ -57,9 +61,14 @@ class StreamAddForm extends AbstractFormBuilderForm
     public $objectActionClass = StreamAction::class;
 
     /**
-     * stream type id
+     * object type id
      */
-    public int $streamTypeID = 0;
+    public int $objectTypeID = 0;
+
+    /**
+     * stream option obj
+     */
+    public ?IStreamOption $optionObj = null;
 
     /**
      * @inheritDoc
@@ -128,20 +137,48 @@ class StreamAddForm extends AbstractFormBuilderForm
             ]);
         $dataTab->appendChild($dataContainer);
 
-        // adding options from stream type class
-        $objectType = ObjectTypeCache::getInstance()->getObjectType($this->streamTypeID);
-        $objectType->getProcessor()->setStreamAddOptions($optionsTab);
+        // adding options
+        $this->getOptionObject()->addOptions($optionsTab);
+    }
 
+    /**
+     * @inheritDoc
+     */
+    protected function finalizeForm()
+    {
         $this->form->getDataHandler()->addProcessor(
             new CustomFormDataProcessor(
-                'streamTypeID',
+                'objectTypeID',
                 function (IFormDocument $document, array $parameters) {
-                    $parameters['data']['streamTypeID'] = $this->streamTypeID;
+                    $parameters['data']['objectTypeID'] = $this->objectTypeID;
 
                     return $parameters;
                 }
             )
         );
+
+        $this->getOptionObject()->addProcessors($this->form->getDataHandler());
+    }
+
+    protected function getOptionObject(): IStreamOption
+    {
+        if ($this->optionObj === null) {
+            $objectType = ObjectTypeCache::getInstance()->getObjectType($this->objectTypeID);
+            $typeName = StringUtil::firstCharToUpperCase($objectType->getProcessor()->getStreamTypeName());
+
+            $className = 'radio\system\stream\option\\' . $typeName . 'StreamOption';
+            if (!\class_exists($className)) {
+                throw new \LogicException("Unable to find class '" . $className . "'.");
+            }
+
+            if (!\is_subclass_of($className, IStreamOption::class)) {
+                throw new ImplementationException($className, IStreamOption::class);
+            }
+
+            $this->optionObj = new $className();
+        }
+
+        return $this->optionObj;
     }
 
     /**
@@ -165,21 +202,68 @@ class StreamAddForm extends AbstractFormBuilderForm
             throw new NamedUserException(WCF::getLanguage()->get('radio.acp.stream.error.noStreamTypes'));
         }
 
-        if (!empty($_REQUEST['streamTypeID'])) {
-            $this->streamTypeID = \intval($_REQUEST['streamTypeID']);
+        if (!empty($_REQUEST['objectTypeID'])) {
+            $this->objectTypeID = \intval($_REQUEST['objectTypeID']);
         }
 
         // work-around to force adding stream via dialog overlay
-        if (\count($objectTypes) > 1 && empty($_POST) && !isset($_REQUEST['streamTypeID'])) {
+        if (\count($objectTypes) > 1 && empty($_POST) && !isset($_REQUEST['objectTypeID'])) {
             $parameters = [
                 'application' => 'radio',
                 'showStreamAddDialog' => 1,
             ];
             HeaderUtil::redirect(LinkHandler::getInstance()->getLink('StreamList', $parameters));
             exit;
-        } else if (\count($objectTypes) == 1 && empty($_POST) && !isset($_REQUEST['streamTypeID'])) {
-            $firstStreamType = $objectTypes[0]->getProcessor();
-            $this->streamTypeID = $firstStreamType->getStreamTypeID();
+        } else if (\count($objectTypes) == 1 && empty($_POST) && !isset($_REQUEST['objectTypeID'])) {
+            $firstObjectType = \reset($objectTypes);
+            $this->objectTypeID = $firstObjectType->objectTypeID;
+        }
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function save()
+    {
+        AbstractForm::save();
+
+        $action = $this->formAction;
+        if ($this->objectActionName) {
+            $action = $this->objectActionName;
+        } elseif ($this->formAction === 'edit') {
+            $action = 'update';
+        }
+
+        $formData = $this->form->getData();
+        if (!isset($formData['data'])) {
+            $formData['data'] = [];
+        }
+        $formData['data'] = \array_merge($this->additionalFields, $formData['data']);
+
+        if (isset($formData['data']['config'])) {
+            $formData['data']['config'] = \serialize($formData['data']['config']);
+        }
+
+        /** @var AbstractDatabaseObjectAction objectAction */
+        $this->objectAction = new $this->objectActionClass(
+            \array_filter([$this->formObject]),
+            $action,
+            $formData
+        );
+        $this->objectAction->executeAction();
+
+        $this->saved();
+
+        WCF::getTPL()->assign('success', true);
+
+        if ($this->formAction === 'create' && $this->objectEditLinkController) {
+            WCF::getTPL()->assign(
+                'objectEditLink',
+                LinkHandler::getInstance()->getControllerLink($this->objectEditLinkController, [
+                    'application' => $this->objectEditLinkApplication,
+                    'id' => $this->objectAction->getReturnValues()['returnValues']->getObjectID(),
+                ])
+            );
         }
     }
 
@@ -198,7 +282,7 @@ class StreamAddForm extends AbstractFormBuilderForm
                 $parameters['id'] = $object->{$object::getDatabaseTableIndexName()};
             }
         } else {
-            $parameters['streamTypeID'] = $this->streamTypeID;
+            $parameters['objectTypeID'] = $this->objectTypeID;
         }
 
         $this->form->action(LinkHandler::getInstance()->getControllerLink(static::class, $parameters));
