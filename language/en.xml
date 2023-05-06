@@ -13,6 +13,148 @@
             <item name="radio.acp.stream.edit"><![CDATA[Edit Stream]]></item>
             <item name="radio.acp.stream.error.noStreamTypes"><![CDATA[You need installed minimum one stream type.]]></item>
             <item name="radio.acp.stream.list"><![CDATA[Streams]]></item>
+            <item name="radio.acp.stream.option.shoutcast.adaptiveBufferSize"><![CDATA[Adaptive Buffer Size]]></item>
+            <item name="radio.acp.stream.option.shoutcast.adaptiveBufferSize.description"><![CDATA[Specify the buffer size in seconds.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.adminPassword"><![CDATA[Admin Password]]></item>
+            <item name="radio.acp.stream.option.shoutcast.adminPassword.description"><![CDATA[Specify the administrator password to accessing the Shoutcast server functions.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.allowPublicRelay"><![CDATA[Allow Public Relay]]></item>
+            <item name="radio.acp.stream.option.shoutcast.allowPublicRelay.description"><![CDATA[Enable to allow relays to list themselves in the YP directory.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.allowRelay"><![CDATA[Allow Relay]]></item>
+            <item name="radio.acp.stream.option.shoutcast.allowRelay.description"><![CDATA[Enable to allow a relay to connect to the server.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.autoDumpSourceTime"><![CDATA[Auto Dump Source Time]]></item>
+            <item name="radio.acp.stream.option.shoutcast.autoDumpSourceTime.description"><![CDATA[Specify how long before an idle source is dumped from the server (in seconds). [Default: 30]
+<br><br>
+A value of zero means there is no timeout of an idle source. Also if you set this too low then it is likely that valid sources will fail to connect during the initial stages of a source connection.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.backupFile"><![CDATA[Backup File]]></item>
+            <item name="radio.acp.stream.option.shoutcast.backupFile.description"><![CDATA[File to play if the source disconnects from the server.
+<br><br>
+<strong>Note:</strong> This is used globally and also is default for this stream. To apply a specific backup file to a stream endpoint, use the settings from stream endpoint.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.bufferHardLimit"><![CDATA[Buffer Hard Limit]]></item>
+            <item name="radio.acp.stream.option.shoutcast.bufferHardLimit.description"><![CDATA[Specify the maximum buffer size in bytes which it can never go above.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.bufferType"><![CDATA[Buffer Type]]></item>
+            <item name="radio.acp.stream.option.shoutcast.bufferType.description"><![CDATA[Specify whether the buffer size is fixed [0] or adaptive [1].]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category"><![CDATA[Shoutcast]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.debug"><![CDATA[Debug]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.djPort"><![CDATA[DJ Ports]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.introBackupSection"><![CDATA[Intro and Backup Files]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.introBackupSection.description"><![CDATA[Note that intro and backup audio files must precisely match the format and bitrate for the stream! If they do not match, there will be a break in the stream and the listener will be disconnected.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.miscellaneous"><![CDATA[Sonstiges]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.networkBuffer"><![CDATA[Network Buffer]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.relay"><![CDATA[Relais]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.ssl"><![CDATA[SSL]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.ssl.description"><![CDATA[Put the whole certificate chain in the .crt file, and only the key in the .key file.
+<br>SSL Cert needs to be assigned to a DNS e.g. stream.mysite.com.
+<br><br>
+<strong>Note:</strong> SSL Support is for Linux-only, not Windows.]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug"><![CDATA[Debug]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.admetricsdebug"><![CDATA[AD metrics]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.all"><![CDATA[All]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.custom"><![CDATA[Selection]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.description"><![CDATA[Use this option to enable or disable all debug logging functions or to specify only the desired debug logging functions.]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.httpstyledebug"><![CDATA[HTTP style requests]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.microserverdebug"><![CDATA[Common server activity]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.none"><![CDATA[Keine]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.relaydebug"><![CDATA[Common relay code]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.relayshoutcastdebug"><![CDATA[SHOUTcast relays]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.relayuvoxdebug"><![CDATA[SHOUTcast relays]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.rtmpclientdebug"><![CDATA[RTMP clients]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.shoutcast2clientdebug"><![CDATA[SHOUTcast streaming clients]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.shoutcastsourcedebug"><![CDATA[SHOUTcast source connections]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.statsdebug"><![CDATA[Statistics]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.streamdatadebug"><![CDATA[Common streaming code]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.threadrunnerdebug"><![CDATA[Thread manager]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.uvox2sourcedebug"><![CDATA[SHOUTcast source connections]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.yp1debug"><![CDATA[YP connections]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.yp2debug"><![CDATA[YP2 connections]]></item>
+            <item name="radio.acp.stream.option.shoutcast.fixedBufferSize"><![CDATA[Fixed Buffer Size]]></item>
+            <item name="radio.acp.stream.option.shoutcast.fixedBufferSize.description"><![CDATA[Specify the buffer size in bytes.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.introFile"><![CDATA[Intro File]]></item>
+            <item name="radio.acp.stream.option.shoutcast.introFile.description"><![CDATA[File that is played when a client connects to the server for the first time.
+<br><br>
+<strong>Note:</strong> This is used globally and is also the default for this stream. To apply a specific intro file to a stream endpoint, use the settings from stream endpoint.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.maxHeaderLineCount"><![CDATA[Max Header Line Count]]></item>
+            <item name="radio.acp.stream.option.shoutcast.maxHeaderLineCount.description"><![CDATA[Specify the maximum header lines in an HTTP style exchange.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.maxHeaderLineSize"><![CDATA[Max Header Line Size]]></item>
+            <item name="radio.acp.stream.option.shoutcast.maxHeaderLineSize.description"><![CDATA[Specify the maximum size of an HTTP header line.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.maxHTTPRedirects"><![CDATA[Max HTTP Redirects]]></item>
+            <item name="radio.acp.stream.option.shoutcast.maxHTTPRedirects.description"><![CDATA[Specify the maximum number of times we can redirect when relaying.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.maxUser"><![CDATA[Count Clients ]]></item>
+            <item name="radio.acp.stream.option.shoutcast.maxUser.description"><![CDATA[Specify the maximum number of clients allowed to connect to the server.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.nameLookups"><![CDATA[Reverse DNS Lookups]]></item>
+            <item name="radio.acp.stream.option.shoutcast.nameLookups.description"><![CDATA[Enable to allow reverse DNS look-ups on incoming IP addresses.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.password"><![CDATA[Password]]></item>
+            <item name="radio.acp.stream.option.shoutcast.password.description"><![CDATA[Specify the password to connect to the Shoutcast server.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.publicServer"><![CDATA[Public Server]]></item>
+            <item name="radio.acp.stream.option.shoutcast.publicServer.always"><![CDATA[always]]></item>
+            <item name="radio.acp.stream.option.shoutcast.publicServer.default"><![CDATA[default]]></item>
+            <item name="radio.acp.stream.option.shoutcast.publicServer.description"><![CDATA[This allows you to override the public flag from the connected source when a connection is being made to the YP directory.
+<br><br>
+This can be one of the following values:
+<ul class="nativeList">
+    <li><strong>default</strong>: Use the flag provided by the source</li>
+    <li><strong>always</strong>: Force the source to be public</li>
+    <li><strong>never</strong>: Never allow the use the flag provided by the source</li>
+</ul>]]></item>
+            <item name="radio.acp.stream.option.shoutcast.publicServer.never"><![CDATA[never]]></item>
+            <item name="radio.acp.stream.option.shoutcast.relayConnectRetries"><![CDATA[Relay Connect Retries]]></item>
+            <item name="radio.acp.stream.option.shoutcast.relayConnectRetries.description"><![CDATA[Specify the number of times relays are attempted to be connected to if it is initially unable to connect.
+<br><br>
+<kbd>This generally applies only to YP1 connections and is related to the actual attempts to make and get a http response from the YP server.</kbd>]]></item>
+            <item name="radio.acp.stream.option.shoutcast.relayReconnectTime"><![CDATA[Relay Reconnect Time]]></item>
+            <item name="radio.acp.stream.option.shoutcast.relayReconnectTime.description"><![CDATA[Specify how many seconds to wait to reconnect on a relay failure.
+<br><br>
+<kbd>Setting this to 0 will disable attempts for the relay to reconnect.</kbd>]]></item>
+            <item name="radio.acp.stream.option.shoutcast.songHistory"><![CDATA[Song History]]></item>
+            <item name="radio.acp.stream.option.shoutcast.songHistory.description"><![CDATA[Specify the maximum song history to preserve.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.sslCertificateFile"><![CDATA[Certificate File]]></item>
+            <item name="radio.acp.stream.option.shoutcast.sslCertificateFile.description"><![CDATA[For https:// streams, specify .crt file e.g. <kbd>/path/to/ssl.crt</kbd>]]></item>
+            <item name="radio.acp.stream.option.shoutcast.sslCertificateKeyFile"><![CDATA[Certificate Key File]]></item>
+            <item name="radio.acp.stream.option.shoutcast.sslCertificateKeyFile.description"><![CDATA[Specify key file, e.g. <kbd>/path/to/key.pem</kbd>]]></item>
+            <item name="radio.acp.stream.option.transcoder.adminPassword"><![CDATA[Admin Password]]></item>
+            <item name="radio.acp.stream.option.transcoder.adminPassword.description"><![CDATA[Specify the password to access the administrative control page.]]></item>
+            <item name="radio.acp.stream.option.transcoder.adminPort"><![CDATA[Admin Port]]></item>
+            <item name="radio.acp.stream.option.transcoder.adminPort.description"><![CDATA[Specify the port used to access the administrative control page.]]></item>
+            <item name="radio.acp.stream.option.transcoder.adminUser"><![CDATA[Admin User]]></item>
+            <item name="radio.acp.stream.option.transcoder.adminUser.description"><![CDATA[Specify the username used to access the administrative control page.]]></item>
+            <item name="radio.acp.stream.option.transcoder.autoDumpSourceTime"><![CDATA[Maximum Idle Time]]></item>
+            <item name="radio.acp.stream.option.transcoder.autoDumpSourceTime.description"><![CDATA[Specify the maximum idle time for the DJ in seconds before being disconnected.]]></item>
+            <item name="radio.acp.stream.option.transcoder.category"><![CDATA[Transcoder]]></item>
+            <item name="radio.acp.stream.option.transcoder.category.admin"><![CDATA[Administration]]></item>
+            <item name="radio.acp.stream.option.transcoder.category.debug"><![CDATA[Debug]]></item>
+            <item name="radio.acp.stream.option.transcoder.category.djSupport"><![CDATA[DJ Support]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.all"><![CDATA[All]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.apidebug"><![CDATA[AJAX api]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.calendardebug"><![CDATA[Calendar events]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.capturedebug"><![CDATA[Live capture]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.custom"><![CDATA[Custom]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.description"><![CDATA[Use this option to enable or disable all debug logging functions or to specify only the desired debug logging functions.]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.djdebug"><![CDATA[DJ management]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.fileconverterdebug"><![CDATA[Server side file converter]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.gaindebug"><![CDATA[Replay gain on playback]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.mp3decdebug"><![CDATA[MP3 decoder]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.mp3encdebug"><![CDATA[MP3 encoding]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.none"><![CDATA[None]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.playlistdebug"><![CDATA[Playlists]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.resamplerdebug"><![CDATA[Resampler]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.rgcalcdebug"><![CDATA[Replay gain calculator]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.shoutcastdebug"><![CDATA[SHOUTcast transmission]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.shuffledebug"><![CDATA[Playlist shuffling]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.sourceandendpointmanagerdebug"><![CDATA[Endpoint management]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.sourcerelaydebug"><![CDATA[Relayed sources]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.uvoxdebug"><![CDATA[SHOUTcast 2 (Ultravox 2.1) transmissions]]></item>
+            <item name="radio.acp.stream.option.transcoder.djCapture"><![CDATA[Aufnahme DJ-Sendung]]></item>
+            <item name="radio.acp.stream.option.transcoder.djCapture.description"><![CDATA[Aktivieren, um die Aufnahme der DJ-Sendung zu erlauben.]]></item>
+            <item name="radio.acp.stream.option.transcoder.djPort"><![CDATA[DJ Port]]></item>
+            <item name="radio.acp.stream.option.transcoder.djPort.description"><![CDATA[Specify the port to listen on for DJ access using the SHOUTcast 1 protocol.
+<br><br>
+<kbd>This will actually open 'djport + 1' as the listening port.</kbd>]]></item>
+            <item name="radio.acp.stream.option.transcoder.djPort2"><![CDATA[DJ Port 2]]></item>
+            <item name="radio.acp.stream.option.transcoder.djPort2.description"><![CDATA[Specify the port to listen on for DJ access using the SHOUTcast 2 protocol.
+<br><br>
+<strong>Note:</strong> It is possible to use 'djport' and 'djport2' at the same time though you need to ensure that there is no overlap of the ports used in what is specified.]]></item>
+            <item name="radio.acp.stream.option.transcoder.public"><![CDATA[Public]]></item>
+            <item name="radio.acp.stream.option.transcoder.public.description"><![CDATA[Enable to register the radio station or stream with the YP (shoutcast.com).]]></item>
+            <item name="radio.acp.stream.option.transcoder.transEnable"><![CDATA[Enable transcoder]]></item>
             <item name="radio.acp.stream.port.error.use"><![CDATA[Port is already used for this system.]]></item>
             <item name="radio.acp.stream.showOrder.description"><![CDATA[The stream will be shown after the selected stream.]]></item>
         </category>

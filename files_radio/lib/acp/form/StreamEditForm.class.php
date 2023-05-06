@@ -38,16 +38,6 @@ class StreamEditForm extends StreamAddForm
             throw new IllegalLinkException();
         }
 
-        $this->objectTypeID = $this->formObject->objectTypeID;
-
         parent::readParameters();
-    }
-
-    /**
-     * @inheritDoc
-     */
-    protected function readStreamType(): void
-    {
-        // not required for editing
     }
 }

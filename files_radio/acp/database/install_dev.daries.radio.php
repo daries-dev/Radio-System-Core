@@ -12,14 +12,12 @@ use wcf\system\database\table\column\NotNullInt10DatabaseTableColumn;
 use wcf\system\database\table\column\NotNullVarchar255DatabaseTableColumn;
 use wcf\system\database\table\column\ObjectIdDatabaseTableColumn;
 use wcf\system\database\table\DatabaseTable;
-use wcf\system\database\table\index\DatabaseTableForeignKey;
 use wcf\system\database\table\index\DatabaseTablePrimaryIndex;
 
 return [
     DatabaseTable::create('radio1_stream')
         ->columns([
             ObjectIdDatabaseTableColumn::create('streamID'),
-            NotNullInt10DatabaseTableColumn::create('objectTypeID'),
             NotNullVarchar255DatabaseTableColumn::create('streamname')
                 ->defaultValue(''),
             NotNullVarchar255DatabaseTableColumn::create('host')
@@ -34,12 +32,5 @@ return [
         ->indices([
             DatabaseTablePrimaryIndex::create()
                 ->columns(['streamID']),
-        ])
-        ->foreignKeys([
-            DatabaseTableForeignKey::create()
-                ->columns(['objectTypeID'])
-                ->referencedTable('wcf1_object_type')
-                ->referencedColumns(['objectTypeID'])
-                ->onDelete('CASCADE'),
         ]),
 ];

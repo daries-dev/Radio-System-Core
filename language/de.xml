@@ -13,6 +13,148 @@
             <item name="radio.acp.stream.edit"><![CDATA[Stream bearbeiten]]></item>
             <item name="radio.acp.stream.error.noStreamTypes"><![CDATA[Es muss mindestens ein Stream Type installiert sein.]]></item>
             <item name="radio.acp.stream.list"><![CDATA[Streams]]></item>
+            <item name="radio.acp.stream.option.shoutcast.adaptiveBufferSize"><![CDATA[Adaptive Puffergröße]]></item>
+            <item name="radio.acp.stream.option.shoutcast.adaptiveBufferSize.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} die Puffergröße in Sekunden an.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.adminPassword"><![CDATA[Admin Kennwort]]></item>
+            <item name="radio.acp.stream.option.shoutcast.adminPassword.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} das Administrator Kennwort für den Zugriff auf die Funktionen des SHOUTcast-Servers an.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.allowPublicRelay"><![CDATA[Relais veröffentlichen]]></item>
+            <item name="radio.acp.stream.option.shoutcast.allowPublicRelay.description"><![CDATA[Aktivieren, um Relais zu erlauben, sich im YP-Verzeichnis aufzulisten.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.allowRelay"><![CDATA[Relais zulassen]]></item>
+            <item name="radio.acp.stream.option.shoutcast.allowRelay.description"><![CDATA[Aktivieren, um einem Relay zu erlauben, sich mit dem Server zu verbinden.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.autoDumpSourceTime"><![CDATA[Auto Dump Source Time]]></item>
+            <item name="radio.acp.stream.option.shoutcast.autoDumpSourceTime.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} an, wie lange es dauert, bis eine inaktive Quelle vom Server gelöscht wird (in Sekunden).
+<br><br>
+Ein Wert von Null bedeutet, dass es keine Zeitüberschreitung für eine untätige Quelle gibt. Wenn {if LANGUAGE_USE_INFORMAL_VARIANT}Du{else}Sie{/if} diesen Wert zu niedrig ansetzen, ist es wahrscheinlich, dass gültige Quellen in der Anfangsphase einer Quellenverbindung keine Verbindung herstellen können.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.backupFile"><![CDATA[Sicherungsdatei]]></item>
+            <item name="radio.acp.stream.option.shoutcast.backupFile.description"><![CDATA[Datei, die abgespielt wird, wenn die Quelle die Verbindung zum Server unterbricht.
+<br><br>
+<strong>Hinweis:</strong> Dies wird global verwendet und ist auch die Vorgabe für diesen Stream. Um eine bestimmte Sicherungsdatei auf einen Stream-Endpunkt anzuwenden, verwenden Sie die Einstellungen des Stream-Endpunkts.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.bufferHardLimit"><![CDATA[Puffer Hart Limit]]></item>
+            <item name="radio.acp.stream.option.shoutcast.bufferHardLimit.description"><![CDATA[Geben Sie die maximale Puffergröße in Bytes an, die nie überschritten werden darf. [Voreinstellung = 16777216]]]></item>
+            <item name="radio.acp.stream.option.shoutcast.bufferType"><![CDATA[Puffertyp]]></item>
+            <item name="radio.acp.stream.option.shoutcast.bufferType.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} an, ob die Puffergröße fest [0] oder adaptiv [1] ist.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category"><![CDATA[SHOUTcast]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.debug"><![CDATA[Debug]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.djPort"><![CDATA[DJ Ports]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.introBackupSection"><![CDATA[Intro und Backup-Dateien]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.introBackupSection.description"><![CDATA[Beachten Sie, dass die Intro- und Backup-Audiodateien genau mit dem Format und der Bitrate des Streams übereinstimmen müssen! Stimmen sie nicht überein, kommt es zu einer Unterbrechung des Streams und die Verbindung zum Hörer wird unterbrochen.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.miscellaneous"><![CDATA[Sonstiges]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.networkBuffer"><![CDATA[Netzpuffer]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.relay"><![CDATA[Relais]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.ssl"><![CDATA[SSL]]></item>
+            <item name="radio.acp.stream.option.shoutcast.category.ssl.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Lege{else}Legen Sie{/if} die gesamte Zertifikatskette in der .crt-Datei ab, und nur den Schlüssel in der .key-Datei.
+<br>Das SSL-Zertifikat muss einem DNS zugewiesen werden, z.B. stream.mysite.com.
+<br><br>
+<strong>Hinweis:</strong> Die SSL-Unterstützung gilt nur für Linux, nicht für Windows.]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug"><![CDATA[Debug]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.admetricsdebug"><![CDATA[Anzeigenmetriken]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.all"><![CDATA[Alle]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.custom"><![CDATA[Auswahl]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Verwende{else}Verwenden Sie{/if} diese Option, um alle Debug-Protokollierungsfunktionen zu aktivieren oder zu deaktivieren oder um nur die gewünschten Debug-Protokollierungsfunktionen anzugeben.]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.httpstyledebug"><![CDATA[HTTP-Anfragen]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.microserverdebug"><![CDATA[Allgemeiner Serveraktivitäten]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.none"><![CDATA[Keine]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.relaydebug"><![CDATA[Allgemeinem Relay-Code]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.relayshoutcastdebug"><![CDATA[SHOUTcast-Relais]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.relayuvoxdebug"><![CDATA[SHOUTcast Relaisverbindung(en)]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.rtmpclientdebug"><![CDATA[RTMP-Client-Verbindung(en)]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.shoutcast2clientdebug"><![CDATA[SHOUTcast Client-Verbindung(en)]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.shoutcastsourcedebug"><![CDATA[SHOUTcast-Quellverbindungen]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.statsdebug"><![CDATA[Statistik]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.streamdatadebug"><![CDATA[Allgemeinem Streaming-Code]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.threadrunnerdebug"><![CDATA[Threadmanagers]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.uvox2sourcedebug"><![CDATA[SHOUTcast-Quellverbindungen]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.yp1debug"><![CDATA[YP1-Verbindung]]></item>
+			<item name="radio.acp.stream.option.shoutcast.debug.yp2debug"><![CDATA[YP2-Verbindung]]></item>
+            <item name="radio.acp.stream.option.shoutcast.fixedBufferSize"><![CDATA[Feste Puffergröße]]></item>
+            <item name="radio.acp.stream.option.shoutcast.fixedBufferSize.description"><![CDATA[Geben Sie die Puffergröße in Bytes an. [Voreinstellung = 1048576]]]></item>
+            <item name="radio.acp.stream.option.shoutcast.introFile"><![CDATA[Intro-Datei]]></item>
+            <item name="radio.acp.stream.option.shoutcast.introFile.description"><![CDATA[Datei, die abgespielt wird, wenn sich ein Client zum ersten Mal mit dem Server verbindet.
+<br><br>
+<strong>Hinweis:</strong> Dies wird global verwendet und ist auch der Standardwert für diesen Stream. Um eine bestimmte Intro-Datei auf einen Stream-Endpunkt anzuwenden, verwenden Sie die Einstellung für den Stream-Endpunkt.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.maxHeaderLineCount"><![CDATA[Max Anzahl HTTP-Header-Zeile]]></item>
+            <item name="radio.acp.stream.option.shoutcast.maxHeaderLineCount.description"><![CDATA[Geben Sie die maximale Anzahl von Kopfzeilen in einem HTTP-Austausch an.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.maxHeaderLineSize"><![CDATA[Max größe HTTP-Header-Zeile]]></item>
+            <item name="radio.acp.stream.option.shoutcast.maxHeaderLineSize.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} die maximale Größe einer HTTP-Header-Zeile an.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.maxHTTPRedirects"><![CDATA[Maximale HTTP-Weiterleitungen]]></item>
+            <item name="radio.acp.stream.option.shoutcast.maxHTTPRedirects.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} die maximale Anzahl der Weiterleitungen an, die bei einer Weiterleitung möglich sind.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.maxUser"><![CDATA[Anzahl Clients]]></item>
+            <item name="radio.acp.stream.option.shoutcast.maxUser.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} die maximale Anzahl von Clients an, die eine Verbindung zum Server herstellen dürfen.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.nameLookups"><![CDATA[Reverse-DNS-Lookups]]></item>
+            <item name="radio.acp.stream.option.shoutcast.nameLookups.description"><![CDATA[Aktivieren, um Reverse-DNS-Lookups auf eingehende IP-Adressen zuzulassen.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.password"><![CDATA[Kennwort]]></item>
+            <item name="radio.acp.stream.option.shoutcast.password.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} das Kennwort für die Verbindung mit dem SHOUTcast-Server an.]]></item>
+            <item name="radio.acp.stream.option.shoutcast.publicServer"><![CDATA[Server öffentlich]]></item>
+            <item name="radio.acp.stream.option.shoutcast.publicServer.always"><![CDATA[immer]]></item>
+            <item name="radio.acp.stream.option.shoutcast.publicServer.default"><![CDATA[standard]]></item>
+            <item name="radio.acp.stream.option.shoutcast.publicServer.description"><![CDATA[Damit {if LANGUAGE_USE_INFORMAL_VARIANT}Kannst Du{else}können Sie{/if} das öffentliche Kennzeichen der verbundenen Quelle überschreiben, wenn eine Verbindung zum YP-Verzeichnis hergestellt wird.
+<br><br>
+Dies kann einer der folgenden Werte sein:
+<ul class="nativeList">
+    <li><strong>standard</strong>: Das von der Quelle bereitgestellte Flag verwenden</li>
+    <li><strong>immer</strong>: Zwingt die Quelle, öffentlich zu sein</li>
+    <li><strong>niemals</strong>: Niemals die Verwendung des von der Quelle angegebenen Flags erlauben</li>
+</ul>]]></item>
+            <item name="radio.acp.stream.option.shoutcast.publicServer.never"><![CDATA[niemals]]></item>
+            <item name="radio.acp.stream.option.shoutcast.relayConnectRetries"><![CDATA[Verbindungsversuche]]></item>
+            <item name="radio.acp.stream.option.shoutcast.relayConnectRetries.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} an, wie oft versucht werden soll, eine Verbindung zu einem Relais herzustellen, wenn dies zunächst nicht möglich ist.
+<br><br>
+<kbd>Dies gilt im Allgemeinen nur für YP1-Verbindungen und bezieht sich auf die tatsächlichen Versuche, eine http-Antwort vom YP-Server zu erhalten.</kbd>]]></item>
+            <item name="radio.acp.stream.option.shoutcast.relayReconnectTime"><![CDATA[Wiederverbindungszeit]]></item>
+            <item name="radio.acp.stream.option.shoutcast.relayReconnectTime.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} an, wie viele Sekunden gewartet werden soll, um die Verbindung bei einem Relaisausfall wiederherzustellen.
+<br><br>
+<kbd>Wird dieser Wert auf 0 gesetzt, werden die Versuche, das Relais wieder zu verbinden, deaktiviert.</kbd>]]></item>
+            <item name="radio.acp.stream.option.shoutcast.songHistory"><![CDATA[Songhistorie]]></item>
+            <item name="radio.acp.stream.option.shoutcast.songHistory.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Lege{else}Legen Sie{/if} die maximal zu erhaltende Songhistorie fest]]></item>
+            <item name="radio.acp.stream.option.shoutcast.sslCertificateFile"><![CDATA[Zertifikatsdatei]]></item>
+            <item name="radio.acp.stream.option.shoutcast.sslCertificateFile.description"><![CDATA[Für https:// Streams die .crt-Datei angeben, z. B. <kbd>/path/to/ssl.crt</kbd>]]></item>
+            <item name="radio.acp.stream.option.shoutcast.sslCertificateKeyFile"><![CDATA[Zertifikat-Schlüsseldatei]]></item>
+            <item name="radio.acp.stream.option.shoutcast.sslCertificateKeyFile.description"><![CDATA[Schlüsseldatei angeben, z. B. <kbd>/path/to/key.pem</kbd>]]></item>
+            <item name="radio.acp.stream.option.transcoder.adminPassword"><![CDATA[Admin Kennwort]]></item>
+            <item name="radio.acp.stream.option.transcoder.adminPassword.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} das Kennwort für den Zugriff auf die administrative Kontrollseite an.]]></item>
+            <item name="radio.acp.stream.option.transcoder.adminPort"><![CDATA[Admin Port]]></item>
+            <item name="radio.acp.stream.option.transcoder.adminPort.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} den Port an, der für den Zugriff auf die administrative Kontrollseite verwendet wird.]]></item>
+            <item name="radio.acp.stream.option.transcoder.adminUser"><![CDATA[Admin Benutzername]]></item>
+            <item name="radio.acp.stream.option.transcoder.adminUser.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} den Benutzernamen an, der für den Zugriff auf die administrative Kontrollseite verwendet wird.]]></item>
+            <item name="radio.acp.stream.option.transcoder.autoDumpSourceTime"><![CDATA[Maximale Inaktivitätszeit]]></item>
+            <item name="radio.acp.stream.option.transcoder.autoDumpSourceTime.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} die maximale Inaktivitätszeit für den DJ in Sekunden an, bevor die Verbindung unterbrochen wird.]]></item>
+            <item name="radio.acp.stream.option.transcoder.category"><![CDATA[Transcoder]]></item>
+            <item name="radio.acp.stream.option.transcoder.category.admin"><![CDATA[Administration]]></item>
+            <item name="radio.acp.stream.option.transcoder.category.debug"><![CDATA[Debug]]></item>
+            <item name="radio.acp.stream.option.transcoder.category.djSupport"><![CDATA[DJ Support]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.all"><![CDATA[Alle]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.apidebug"><![CDATA[AJAX API]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.calendardebug"><![CDATA[Kalenderereignisse]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.capturedebug"><![CDATA[Live-Aufnahme]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.custom"><![CDATA[Auswahl]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Verwende{else}Verwenden Sie{/if} diese Option, um alle Debug-Protokollierungsfunktionen zu aktivieren oder zu deaktivieren oder um nur die gewünschten Debug-Protokollierungsfunktionen anzugeben.]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.djdebug"><![CDATA[DJ-Verwaltung]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.fileconverterdebug"><![CDATA[Serverseitige Dateikonverter]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.gaindebug"><![CDATA[Replay Gain bei der Wiedergabe]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.mp3decdebug"><![CDATA[MP3-Decoder]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.mp3encdebug"><![CDATA[MP3-Kodierung]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.none"><![CDATA[Keine]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.playlistdebug"><![CDATA[Wiedergabelisten]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.resamplerdebug"><![CDATA[Resampler]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.rgcalcdebug"><![CDATA[Replay-Gain-Berechnung]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.shoutcastdebug"><![CDATA[SHOUTcast-Übertragung]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.shuffledebug"><![CDATA[Shuffling der Wiedergabeliste]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.sourceandendpointmanagerdebug"><![CDATA[Endpunktverwaltung]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.sourcerelaydebug"><![CDATA[Weitergeleitete Quellen]]></item>
+			<item name="radio.acp.stream.option.transcoder.debug.uvoxdebug"><![CDATA[SHOUTcast 2 (Ultravox 2.1) Übertragungen]]></item>
+            <item name="radio.acp.stream.option.transcoder.djCapture"><![CDATA[Aufnahme DJ-Sendung]]></item>
+            <item name="radio.acp.stream.option.transcoder.djCapture.description"><![CDATA[Aktivieren, um die Aufnahme der DJ-Sendung zu erlauben.]]></item>
+            <item name="radio.acp.stream.option.transcoder.djPort"><![CDATA[DJ Port]]></item>
+            <item name="radio.acp.stream.option.transcoder.djPort.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} den Port an, der für den DJ-Zugriff über das SHOUTcast 1-Protokoll überwacht werden soll.
+<br><br>
+<kbd>Dies öffnet tatsächlich 'djport + 1' als Port für das Abhören.</kbd>]]></item>
+            <item name="radio.acp.stream.option.transcoder.djPort2"><![CDATA[DJ Port 2]]></item>
+            <item name="radio.acp.stream.option.transcoder.djPort2.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} den Port an, der für den DJ-Zugriff über das SHOUTcast 2-Protokoll abgehört werden soll.
+<br><br>
+<strong>Hinweis:</strong> Es ist möglich, 'djport' und 'djport2' gleichzeitig zu verwenden, allerdings {if LANGUAGE_USE_INFORMAL_VARIANT}musst Du{else}müssen Sie{/if} sicherstellen, dass es keine Überschneidungen der Ports gibt, die in der Angabe verwendet werden.]]></item>
+            <item name="radio.acp.stream.option.transcoder.public"><![CDATA[Öffentlich]]></item>
+            <item name="radio.acp.stream.option.transcoder.public.description"><![CDATA[Aktivieren Sie die Registrierung des Radiosenders oder Streams bei YP (shoutcast.com).]]></item>
+            <item name="radio.acp.stream.option.transcoder.transEnable"><![CDATA[Transcoder aktivieren]]></item>
             <item name="radio.acp.stream.port.error.use"><![CDATA[Port wird bereits für dieses System verwendet.]]></item>
             <item name="radio.acp.stream.showOrder.description"><![CDATA[Der Stream wird nach dem ausgewählten Stream angezeigt.]]></item>
         </category>
