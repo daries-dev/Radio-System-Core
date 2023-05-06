@@ -33,5 +33,7 @@
 		<instruction type="objectTypeDefinition" />
 
 		<instruction type="language" />
+
+		<instruction type="script" application="radio">acp/install_dev.daries.radio.php</instruction>
     </instructions>
 </package>
