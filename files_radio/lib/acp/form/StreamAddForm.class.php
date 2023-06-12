@@ -5,7 +5,6 @@ namespace radio\acp\form;
 use radio\data\stream\StreamAction;
 use radio\data\stream\StreamList;
 use radio\system\form\builder\data\processor\StreamOptionFormDataProcessor;
-use wcf\form\AbstractForm;
 use wcf\form\AbstractFormBuilderForm;
 use wcf\system\form\builder\container\FormContainer;
 use wcf\system\form\builder\container\TabFormContainer;
@@ -24,8 +23,6 @@ use wcf\system\form\builder\field\SingleSelectionFormField;
 use wcf\system\form\builder\field\TextFormField;
 use wcf\system\form\builder\field\validation\FormFieldValidationError;
 use wcf\system\form\builder\field\validation\FormFieldValidator;
-use wcf\system\request\LinkHandler;
-use wcf\system\WCF;
 
 /**
  * Shows the stream add form.
@@ -47,9 +44,6 @@ class StreamAddForm extends AbstractFormBuilderForm
     protected array $availableShoutcastOptions = [
         'adaptiveBufferSize' => true,
         'adminPassword' => true,
-        'allowPublicRelay' => true,
-        'allowRelay' => true,
-        'autoDumpSourceTime' => true,
         'backupFile' => true,
         'bufferHardLimit' => true,
         'bufferType' => true,
@@ -69,6 +63,9 @@ class StreamAddForm extends AbstractFormBuilderForm
         'songHistory' => true,
         'sslCertificateFile' => true,
         'sslCertificateKeyFile' => true,
+        'streamAutoDumpSourceTime' => true,
+        'streamAllowPublicRelay' => true,
+        'streamAllowRelay' => true,
     ];
 
     /**
@@ -179,9 +176,9 @@ class StreamAddForm extends AbstractFormBuilderForm
         $shoutcastTab->label('radio.acp.stream.option.shoutcast.category');
         $optionsTab->appendChild($shoutcastTab);
 
-        $allowRelay = BooleanFormField::create('shoutcast_allowRelay')
-            ->label('radio.acp.stream.option.shoutcast.allowRelay')
-            ->description('radio.acp.stream.option.shoutcast.allowRelay.description')
+        $streamAllowRelay = BooleanFormField::create('shoutcast_streamAllowRelay')
+            ->label('radio.acp.stream.option.shoutcast.streamAllowRelay')
+            ->description('radio.acp.stream.option.shoutcast.streamAllowRelay.description')
             ->value(1);
 
         $bufferType = BooleanFormField::create('shoutcast_bufferType')
@@ -216,9 +213,9 @@ class StreamAddForm extends AbstractFormBuilderForm
                         ->label('radio.acp.stream.option.shoutcast.nameLookups')
                         ->description('radio.acp.stream.option.shoutcast.nameLookups.description')
                         ->value(0),
-                    IntegerFormField::create('shoutcast_autoDumpSourceTime')
-                        ->label('radio.acp.stream.option.shoutcast.autoDumpSourceTime')
-                        ->description('radio.acp.stream.option.shoutcast.autoDumpSourceTime.description')
+                    IntegerFormField::create('shoutcast_streamAutoDumpSourceTime')
+                        ->label('radio.acp.stream.option.shoutcast.streamAutoDumpSourceTime')
+                        ->description('radio.acp.stream.option.shoutcast.streamAutoDumpSourceTime.description')
                         ->suffix('wcf.acp.option.suffix.seconds')
                         ->minimum(0)
                         ->value(30),
@@ -237,14 +234,14 @@ class StreamAddForm extends AbstractFormBuilderForm
             FormContainer::create('relaySection')
                 ->label('radio.acp.stream.option.shoutcast.category.relay')
                 ->appendChildren([
-                    $allowRelay,
-                    BooleanFormField::create('shoutcast_allowPublicRelay')
-                        ->label('radio.acp.stream.option.shoutcast.allowPublicRelay')
-                        ->description('radio.acp.stream.option.shoutcast.allowPublicRelay.description')
+                    $streamAllowRelay,
+                    BooleanFormField::create('shoutcast_streamAllowPublicRelay')
+                        ->label('radio.acp.stream.option.shoutcast.streamAllowPublicRelay')
+                        ->description('radio.acp.stream.option.shoutcast.streamAllowPublicRelay.description')
                         ->value(1)
                         ->addDependency(
-                            NonEmptyFormFieldDependency::create('allowRelay')
-                                ->field($allowRelay)
+                            NonEmptyFormFieldDependency::create('streamAllowRelay')
+                                ->field($streamAllowRelay)
                         ),
                     IntegerFormField::create('shoutcast_relayReconnectTime')
                         ->label('radio.acp.stream.option.shoutcast.relayReconnectTime')
@@ -253,8 +250,8 @@ class StreamAddForm extends AbstractFormBuilderForm
                         ->minimum(0)
                         ->value(30)
                         ->addDependency(
-                            NonEmptyFormFieldDependency::create('allowRelay')
-                                ->field($allowRelay)
+                            NonEmptyFormFieldDependency::create('streamAllowRelay')
+                                ->field($streamAllowRelay)
                         ),
                     IntegerFormField::create('shoutcast_relayConnectRetries')
                         ->label('radio.acp.stream.option.shoutcast.relayConnectRetries')
@@ -262,8 +259,8 @@ class StreamAddForm extends AbstractFormBuilderForm
                         ->minimum(0)
                         ->value(3)
                         ->addDependency(
-                            NonEmptyFormFieldDependency::create('allowRelay')
-                                ->field($allowRelay)
+                            NonEmptyFormFieldDependency::create('streamAllowRelay')
+                                ->field($streamAllowRelay)
                         ),
                     IntegerFormField::create('shoutcast_maxHTTPRedirects')
                         ->label('radio.acp.stream.option.shoutcast.maxHTTPRedirects')
@@ -271,8 +268,8 @@ class StreamAddForm extends AbstractFormBuilderForm
                         ->minimum(0)
                         ->value(5)
                         ->addDependency(
-                            NonEmptyFormFieldDependency::create('allowRelay')
-                                ->field($allowRelay)
+                            NonEmptyFormFieldDependency::create('streamAllowRelay')
+                                ->field($streamAllowRelay)
                         ),
                 ]),
             FormContainer::create('sslSection')
@@ -505,7 +502,7 @@ class StreamAddForm extends AbstractFormBuilderForm
     /**
      * @inheritDoc
      */
-    protected function finalizeForm()
+    protected function finalizeForm(): void
     {
         foreach ($this->availableShoutcastOptions as $property => $isDataProperty) {
             $this->form->getDataHandler()->addProcessor(
@@ -518,52 +515,18 @@ class StreamAddForm extends AbstractFormBuilderForm
                 new StreamOptionFormDataProcessor($property, 'transcoder_', $isDataProperty)
             );
         }
-    }
 
-    /**
-     * @inheritDoc
-     */
-    public function save()
-    {
-        AbstractForm::save();
+        $this->form->getDataHandler()->addProcessor(
+            new CustomFormDataProcessor(
+                'customs',
+                function (IFormDocument $document, array $parameters) {
+                    if (isset($parameters['data']['config'])) {
+                        $parameters['data']['config'] = \serialize($parameters['data']['config']);
+                    }
 
-        $action = $this->formAction;
-        if ($this->objectActionName) {
-            $action = $this->objectActionName;
-        } elseif ($this->formAction === 'edit') {
-            $action = 'update';
-        }
-
-        $formData = $this->form->getData();
-        if (!isset($formData['data'])) {
-            $formData['data'] = [];
-        }
-        $formData['data'] = \array_merge($this->additionalFields, $formData['data']);
-
-        if (isset($formData['data']['config'])) {
-            $formData['data']['config'] = \serialize($formData['data']['config']);
-        }
-
-        /** @var AbstractDatabaseObjectAction objectAction */
-        $this->objectAction = new $this->objectActionClass(
-            \array_filter([$this->formObject]),
-            $action,
-            $formData
+                    return $parameters;
+                }
+            )
         );
-        $this->objectAction->executeAction();
-
-        $this->saved();
-
-        WCF::getTPL()->assign('success', true);
-
-        if ($this->formAction === 'create' && $this->objectEditLinkController) {
-            WCF::getTPL()->assign(
-                'objectEditLink',
-                LinkHandler::getInstance()->getControllerLink($this->objectEditLinkController, [
-                    'application' => $this->objectEditLinkApplication,
-                    'id' => $this->objectAction->getReturnValues()['returnValues']->getObjectID(),
-                ])
-            );
-        }
     }
 }
