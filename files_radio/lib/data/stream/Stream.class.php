@@ -25,11 +25,35 @@ use wcf\system\request\IRouteController;
 final class Stream extends DatabaseObject implements IRouteController
 {
     /**
+     * Returns the config by name in the specified category.
+     */
+    public function getConfig(string $name, string $category): mixed
+    {
+        return $this->config[$category][$name] ?? null;
+    }
+
+    /**
+     * Returns the shoutcast config by name.
+     */
+    public function getShoutcastConfig(string $name): mixed
+    {
+        return $this->getConfig($name, 'shoutcast');
+    }
+
+    /**
      * @inheritDoc
      */
     public function getTitle(): string
     {
         return $this->streamname;
+    }
+
+    /**
+     * Returns the transcoder config by name.
+     */
+    public function getTranscoderConfig(string $name): mixed
+    {
+        return $this->getConfig($name, 'transcoder');
     }
 
     /**
