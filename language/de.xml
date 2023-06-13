@@ -11,8 +11,53 @@
         <category name="radio.acp.stream">
             <item name="radio.acp.stream.add"><![CDATA[Stream hinzufügen]]></item>
             <item name="radio.acp.stream.edit"><![CDATA[Stream bearbeiten]]></item>
+            <item name="radio.acp.stream.endpoint.add"><![CDATA[Endpoint hinzufügen]]></item>
+            <item name="radio.acp.stream.endpoint.edit"><![CDATA[Endpoint bearbeiten]]></item>
+            <item name="radio.acp.stream.endpoint.list"><![CDATA[Endpoints]]></item>
+            <item name="radio.acp.stream.endpoint.noneAvailable"><![CDATA[Es wurde für `{$__stream->getTitle()}` noch keine Endpoints hinzugefügt.]]></item>
             <item name="radio.acp.stream.error.noStreamTypes"><![CDATA[Es muss mindestens ein Stream Type installiert sein.]]></item>
             <item name="radio.acp.stream.list"><![CDATA[Streams]]></item>
+            <item name="radio.acp.stream.option.endpoint.bitrate"><![CDATA[Bitrate]]></item>
+            <item name="radio.acp.stream.option.endpoint.bitrate.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} die Kodierungsbitrate in Bits pro Sekunde an.]]></item>
+            <item name="radio.acp.stream.option.endpoint.container.endcoder"><![CDATA[Endcoder]]></item>
+            <item name="radio.acp.stream.option.endpoint.container.relay"><![CDATA[Relais]]></item>
+            <item name="radio.acp.stream.option.endpoint.encoder"><![CDATA[Encoder]]></item>
+            <item name="radio.acp.stream.option.endpoint.encoder.aacp"><![CDATA[AACP]]></item>
+            <item name="radio.acp.stream.option.endpoint.encoder.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} den zu verwendenden Encoder an (mp3 oder aacp).]]></item>
+            <item name="radio.acp.stream.option.endpoint.encoder.mp3"><![CDATA[MP3]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Mode"><![CDATA[MP3-Modus]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Mode.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} den MP3-Encoder-Modus (CBR / VBR) an, der beim Enkodieren verwendet werden soll.]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Mode0"><![CDATA[0 - CBR]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Mode1"><![CDATA[1 - VBR Hohe Qualtität]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Mode2"><![CDATA[2 - ]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Mode3"><![CDATA[3 - VBR Mittlere Qualtität]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Mode4"><![CDATA[4 - ]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Mode5"><![CDATA[5 - VBR Niedrige Qualtität]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Quality"><![CDATA[MP3 Qualität]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Quality.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} die Qualität des MP3-Encoders an, die bei der Codierung verwendet werden soll.]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Quality.fast"><![CDATA[schnell (bevorzugt)]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Quality.high"><![CDATA[hohe Qualtität (ändert die Abtastrate und führt zusätzliche Filterung durch)]]></item>
+            <item name="radio.acp.stream.option.endpoint.name.error.notUnique"><![CDATA[Der Name wird bereits von einem anderen Endpoint verwendet.]]></item>
+            <item name="radio.acp.stream.option.endpoint.path"><![CDATA[Path]]></item>
+            <item name="radio.acp.stream.option.endpoint.path.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} den Pfad an, den die Hörer für den Zugriff auf den Stream-Endpoint verwenden müssen.]]></item>
+            <item name="radio.acp.stream.option.endpoint.path.error.notUnique"><![CDATA[Der Path wird bereits von einem anderen Endpoint verwendet.]]></item>
+			<item name="radio.acp.stream.option.endpoint.sampleRate"><![CDATA[Abtastrate]]></item>
+			<item name="radio.acp.stream.option.endpoint.sampleRate.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} die zu verwendende Abtastrate für die Codierung an.]]></item>
+            <item name="radio.acp.stream.option.endpoint.showOrder.description"><![CDATA[Der Endpoint wird nach dem ausgewählten Endpoint angezeigt.]]></item>
+            <item name="radio.acp.stream.option.endpoint.streamAdminPassword"><![CDATA[Admin Kennwort]]></item>
+            <item name="radio.acp.stream.option.endpoint.streamAdminPassword.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} das Admin-Kennwort für den Zugriff auf die DNAS-Verwaltungsfunktionen für diesen bestimmten Endpunkt ein. 
+<br>
+Falls leer, wird das Admin-Kennwort aus der Stream Einstellung verwendet.]]></item>
+            <item name="radio.acp.stream.option.endpoint.streamMaxUser"><![CDATA[Anzahl Clients]]></item>
+            <item name="radio.acp.stream.option.endpoint.streamMaxUser.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} die maximale Anzahl der Clients an, die eine Verbindung mit dem Stream-Endpunkt herstellen dürfen. Wenn der Wert 0 ist, wird der für den Stream festgelegte Wert verwendet.]]></item>
+            <item name="radio.acp.stream.option.endpoint.streamPassword"><![CDATA[Kennwort]]></item>
+            <item name="radio.acp.stream.option.endpoint.streamPassword.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} das Kennwort für Quellverbindungen zum DNAS für diesen bestimmten Endpunkt ein.
+<br>
+Falls leer, wird das Kennwort aus der Stream Einstellung verwendet.]]></item>
+            <item name="radio.acp.stream.option.endpoint.streamRelayURL"><![CDATA[Stream Relay URL]]></item>
+            <item name="radio.acp.stream.option.endpoint.streamRelayURL.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} die vollständige URL der Quelle an, die weitergegeben werden soll.
+<br><br>
+<strong>Hinweis:</strong> {if LANGUAGE_USE_INFORMAL_VARIANT}Vergewissere Dich{else}Vergewissern Sie sich{/if}Vergewissern Sie sich, dass die vollständige URL eingegeben wird und dass es sich um die URL handelt, mit der sich die Clients für den weiterzuleitenden Stream verbinden würden.]]></item>
             <item name="radio.acp.stream.option.shoutcast.adaptiveBufferSize"><![CDATA[Adaptive Puffergröße]]></item>
             <item name="radio.acp.stream.option.shoutcast.adaptiveBufferSize.description"><![CDATA[{if LANGUAGE_USE_INFORMAL_VARIANT}Gebe{else}Geben Sie{/if} die Puffergröße in Sekunden an.]]></item>
             <item name="radio.acp.stream.option.shoutcast.adminPassword"><![CDATA[Admin Kennwort]]></item>
@@ -166,8 +211,11 @@ Dies kann einer der folgenden Werte sein:
         </category>
 
         <category name="wcf.acp.group">
+            <item name="wcf.acp.group.option.admin.radio.stream.canAddEndpoint"><![CDATA[Kann neuen Endpoint erstellen]]></item>
             <item name="wcf.acp.group.option.admin.radio.stream.canAddStream"><![CDATA[Kann neuen Stream erstellen]]></item>
+            <item name="wcf.acp.group.option.admin.radio.stream.canDeleteEndpoint"><![CDATA[Kann Endpoint löschen]]></item>
             <item name="wcf.acp.group.option.admin.radio.stream.canDeleteStream"><![CDATA[Kann Stream löschen]]></item>
+            <item name="wcf.acp.group.option.admin.radio.stream.canEditEndpoint"><![CDATA[Kann Endpoint bearbeiten]]></item>
             <item name="wcf.acp.group.option.admin.radio.stream.canEditStream"><![CDATA[Kann Stream bearbeiten]]></item>
             <item name="wcf.acp.group.option.category.admin.radio"><![CDATA[Radio]]></item>
             <item name="wcf.acp.group.option.category.admin.radio.stream"><![CDATA[Stream]]></item>

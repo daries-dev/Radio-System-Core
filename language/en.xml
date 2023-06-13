@@ -11,8 +11,53 @@
         <category name="radio.acp.stream">
             <item name="radio.acp.stream.add"><![CDATA[Add Stream]]></item>
             <item name="radio.acp.stream.edit"><![CDATA[Edit Stream]]></item>
+            <item name="radio.acp.stream.endpoint.add"><![CDATA[Add Endpoint]]></item>
+            <item name="radio.acp.stream.endpoint.edit"><![CDATA[Edit Endpoint]]></item>
+            <item name="radio.acp.stream.endpoint.list"><![CDATA[Endpoints]]></item>
+            <item name="radio.acp.stream.endpoint.noneAvailable"><![CDATA[No endpoints have been added yet for `{$__stream->getTitle()}`.]]></item>
             <item name="radio.acp.stream.error.noStreamTypes"><![CDATA[You need installed minimum one stream type.]]></item>
             <item name="radio.acp.stream.list"><![CDATA[Streams]]></item>
+            <item name="radio.acp.stream.option.endpoint.bitrate"><![CDATA[Bitrate]]></item>
+            <item name="radio.acp.stream.option.endpoint.bitrate.description"><![CDATA[Specify the encoding bitrate in bits per second.]]></item>
+            <item name="radio.acp.stream.option.endpoint.container.endcoder"><![CDATA[Endcoder]]></item>
+            <item name="radio.acp.stream.option.endpoint.container.relay"><![CDATA[Relay]]></item>
+            <item name="radio.acp.stream.option.endpoint.encoder"><![CDATA[Encoder]]></item>
+            <item name="radio.acp.stream.option.endpoint.encoder.aacp"><![CDATA[AACP]]></item>
+            <item name="radio.acp.stream.option.endpoint.encoder.description"><![CDATA[Specify the encoder to use, either (mp3 or aacp).]]></item>
+            <item name="radio.acp.stream.option.endpoint.encoder.mp3"><![CDATA[MP3]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Mode"><![CDATA[MP3 Mode]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Mode.description"><![CDATA[Specify the MP3 encoder mode (CBR / VBR) to use when encoding.]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Mode0"><![CDATA[0 - CBR]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Mode1"><![CDATA[1 - VBR High Quality]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Mode2"><![CDATA[2 - ]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Mode3"><![CDATA[3 - VBR Medium Quality]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Mode4"><![CDATA[4 - ]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Mode5"><![CDATA[5 - VBR Low Quality]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Quality"><![CDATA[MP3 Quality]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Quality.description"><![CDATA[Specify the MP3 encoder quality to use when encoding.]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Quality.fast"><![CDATA[fast (preferred)]]></item>
+            <item name="radio.acp.stream.option.endpoint.mp3Quality.high"><![CDATA[high quality (changes sample rate and does additional filtering)]]></item>
+            <item name="radio.acp.stream.option.endpoint.name.error.notUnique"><![CDATA[The name is already used by another endpoint.]]></item>
+            <item name="radio.acp.stream.option.endpoint.path"><![CDATA[Path]]></item>
+            <item name="radio.acp.stream.option.endpoint.path.description"><![CDATA[Specify the path that listeners must use to access the stream endpoint.]]></item>
+            <item name="radio.acp.stream.option.endpoint.path.error.notUnique"><![CDATA[The path is already used by another endpoint.]]></item>
+			<item name="radio.acp.stream.option.endpoint.sampleRate"><![CDATA[Samplerate]]></item>
+			<item name="radio.acp.stream.option.endpoint.sampleRate.description"><![CDATA[Specify the encoding sample rate to use.]]></item>
+            <item name="radio.acp.stream.option.endpoint.showOrder.description"><![CDATA[The endpoint will be shown after the selected endpoint.]]></item>
+            <item name="radio.acp.stream.option.endpoint.streamAdminPassword"><![CDATA[Admin Password]]></item>
+            <item name="radio.acp.stream.option.endpoint.streamAdminPassword.description"><![CDATA[Enter the admin password to access the DNAS management features for this specified endpoint. 
+<br>
+If empty, the admin password from the stream setting will be used.]]></item>
+            <item name="radio.acp.stream.option.endpoint.streamMaxUser"><![CDATA[Count Clients]]></item>
+            <item name="radio.acp.stream.option.endpoint.streamMaxUser.description"><![CDATA[Specify the maximum number of clients that are allowed to connect to the stream endpoint. If set to 0, then the value set for the stream is used.]]></item>
+            <item name="radio.acp.stream.option.endpoint.streamPassword"><![CDATA[Password]]></item>
+            <item name="radio.acp.stream.option.endpoint.streamPassword.description"><![CDATA[Enter the password for source connections to the DNAS for this specified endpoint. 
+<br>
+If empty, the password from the stream setting will be used.]]></item>
+            <item name="radio.acp.stream.option.endpoint.streamRelayURL"><![CDATA[Stream Relay URL]]></item>
+            <item name="radio.acp.stream.option.endpoint.streamRelayURL.description"><![CDATA[Specify the full url of source to relay.
+<br><br>
+<strong>Note:</strong> tMake sure if you use this that the full url is entered and that it is the url which clients would connect to for the stream to be relayed.]]></item>
             <item name="radio.acp.stream.option.shoutcast.adaptiveBufferSize"><![CDATA[Adaptive Buffer Size]]></item>
             <item name="radio.acp.stream.option.shoutcast.adaptiveBufferSize.description"><![CDATA[Specify the buffer size in seconds.]]></item>
             <item name="radio.acp.stream.option.shoutcast.adminPassword"><![CDATA[Admin Password]]></item>
@@ -166,8 +211,11 @@ This can be one of the following values:
         </category>
 
         <category name="wcf.acp.group">
+            <item name="wcf.acp.group.option.admin.radio.stream.canAddEndpoint"><![CDATA[Can create endpoint]]></item>
             <item name="wcf.acp.group.option.admin.radio.stream.canAddStream"><![CDATA[Can create streams]]></item>
+            <item name="wcf.acp.group.option.admin.radio.stream.canDeleteEndpoint"><![CDATA[Can delete endpoint]]></item>
             <item name="wcf.acp.group.option.admin.radio.stream.canDeleteStream"><![CDATA[Can delete streams]]></item>
+            <item name="wcf.acp.group.option.admin.radio.stream.canEditEndpoint"><![CDATA[Can edit endpoint]]></item>
             <item name="wcf.acp.group.option.admin.radio.stream.canEditStream"><![CDATA[Can edit streams]]></item>
             <item name="wcf.acp.group.option.category.admin.radio"><![CDATA[Radio]]></item>
             <item name="wcf.acp.group.option.category.admin.radio.stream"><![CDATA[Stream]]></item>

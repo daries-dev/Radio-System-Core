@@ -90,6 +90,15 @@
                                         </a>
                                     </li>
 
+                                    {if $__wcf->session->getPermission('admin.radio.stream.canEditEndpoint') && $__wcf->session->getPermission('admin.radio.stream.canDeleteEndpoint')}
+                                        <li>
+                                            <a
+                                                href="{link application='radio' controller='StreamEndpointList' id=$stream->streamID}{/link}">
+                                                {lang}radio.acp.stream.endpoint.list{/lang}
+                                            </a>
+                                        </li>
+                                    {/if}
+
                                     {if $__wcf->session->getPermission('admin.radio.stream.canDeleteStream')}
                                         <li class="dropdownDivider"></li>
                                         <li>

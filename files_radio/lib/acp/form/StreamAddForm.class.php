@@ -467,6 +467,7 @@ class StreamAddForm extends AbstractFormBuilderForm
                         ->field($transEnable)
                 ),
             FormContainer::create('transDebugSection')
+                ->label('radio.acp.stream.option.transcoder.category.debug')
                 ->appendChildren([
                     $transDebug,
                     MultipleSelectionFormField::create('transcoder_transcoderDebugEntry')
