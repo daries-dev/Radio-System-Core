@@ -2,7 +2,9 @@
 
 namespace radio\data\stream\endpoint;
 
+use radio\system\cache\builder\StreamEndpointCacheBuilder;
 use wcf\data\DatabaseObjectEditor;
+use wcf\data\IEditableCachedObject;
 
 /**
  * Provides functions to edit stream endpoints.
@@ -14,10 +16,18 @@ use wcf\data\DatabaseObjectEditor;
  * @method  StreamEndpoint  getDecoratedObject()
  * @mixin   StreamEndpoint
  */
-class StreamEndpointEditor extends DatabaseObjectEditor
+class StreamEndpointEditor extends DatabaseObjectEditor implements IEditableCachedObject
 {
     /**
      * @inheritDoc
      */
     protected static $baseClass = StreamEndpoint::class;
+
+    /**
+     * @inheritDoc
+     */
+    public static function resetCache(): void
+    {
+        StreamEndpointCacheBuilder::getInstance()->reset();
+    }
 }

@@ -3,6 +3,10 @@
 namespace radio\data\stream\endpoint;
 
 use wcf\data\AbstractDatabaseObjectAction;
+use wcf\data\ISortableAction;
+use wcf\data\TDatabaseObjectToggle;
+use wcf\system\exception\PermissionDeniedException;
+use wcf\system\exception\UserInputException;
 use wcf\system\WCF;
 
 /**
@@ -15,8 +19,10 @@ use wcf\system\WCF;
  * @method  StreamEndpointEditor[]  getObjects()
  * @method  StreamEndpointEditor    getSingleObject()
  */
-class StreamEndpointAction extends AbstractDatabaseObjectAction
+class StreamEndpointAction extends AbstractDatabaseObjectAction implements ISortableAction
 {
+    use TDatabaseObjectToggle;
+
     /**
      * @inheritDoc
      */
@@ -36,6 +42,11 @@ class StreamEndpointAction extends AbstractDatabaseObjectAction
      * @inheritDoc
      */
     protected $permissionsUpdate = ['admin.radio.stream.canEditEndpoint'];
+
+    /**
+     * @inheritDoc
+     */
+    protected $requireACP = ['create', 'delete', 'toggle', 'update', 'updatePosition'];
 
     /**
      * @inheritDoc
@@ -108,6 +119,52 @@ class StreamEndpointAction extends AbstractDatabaseObjectAction
                     $object->streamID,
                 ]);
             }
+        }
+    }
+
+     /**
+     * @inheritDoc
+     */
+    public function updatePosition()
+    {
+        WCF::getDB()->beginTransaction();
+        foreach ($this->parameters['data']['structure'] as $endpointIDs) {
+            $showOrder = 1;
+            foreach($endpointIDs as $endpointID) {
+                $this->objects[$endpointID]->update([
+                   'showOrder' => $showOrder++,
+                ]);
+            }
+        }
+        WCF::getDB()->commitTransaction();
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function validateUpdatePosition(): void
+    {
+        if (!WCF::getSession()->getPermission('admin.radio.stream.canEditEndpoint')) {
+            throw new PermissionDeniedException();
+        }
+
+        $this->readInteger('streamID');
+
+        // validate 'structure' parameter
+        if (!isset($this->parameters['data']['structure']) || !\is_array($this->parameters['data']['structure'])) {
+            throw new UserInputException('structure');
+        }
+
+        $endpointIDs = $this->parameters['data']['structure'][0];
+
+        foreach ($endpointIDs as $endpointID) {
+            // validate endpoint
+            $endpoint = StreamEndpointCache::getInstance()->getEndpoint($endpointID);
+            if ($endpoint === null || $endpoint->streamID !== $this->parameters['streamID']) {
+                throw new UserInputException('structure');
+            }
+
+            $this->objects[$endpoint->endpointID] = new $this->className($endpoint);
         }
     }
 }

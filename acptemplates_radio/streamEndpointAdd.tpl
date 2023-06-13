@@ -8,7 +8,7 @@
     <nav class="contentHeaderNavigation">
         <ul>
             <li>
-                <a href="{link application='radio' controller='StreamEndopintList' id=$streamID}{/link}" class="button">
+                <a href="{link application='radio' controller='StreamEndpointList' id=$streamID}{/link}" class="button">
                     {icon name='list'}
                     <span>{lang}radio.acp.stream.endpoint.list{/lang}</span>
                 </a>

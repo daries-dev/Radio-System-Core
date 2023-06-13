@@ -43,6 +43,7 @@ return [
             NotNullVarchar255DatabaseTableColumn::create('path'),
             MediumtextDatabaseTableColumn::create('config'),
             DefaultFalseBooleanDatabaseTableColumn::create('isDefault'),
+            DefaultFalseBooleanDatabaseTableColumn::create('isDisabled'),
             NotNullInt10DatabaseTableColumn::create('showOrder')
                 ->defaultValue(0),
         ])

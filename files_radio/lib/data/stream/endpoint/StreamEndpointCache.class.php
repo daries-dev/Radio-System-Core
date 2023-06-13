@@ -58,7 +58,7 @@ class StreamEndpointCache extends SingletonFactory
      */
     public function getEndpoints(int $streamID): array
     {
-        $streamEndpoints = $this->streamEndpoints[$streamID] ?? null;
+        $streamEndpoints = $this->streamEndpoints[$streamID] ?? [];
 
         $list = [];
         foreach ($streamEndpoints as $endpointID) {
@@ -67,6 +67,8 @@ class StreamEndpointCache extends SingletonFactory
 
             $list[] = $endpoint;
         }
+
+        return $list;
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace radio\system\form\builder\data\processor;
 
+use radio\data\stream\endpoint\StreamEndpoint;
 use radio\data\stream\Stream;
 use wcf\data\IStorableObject;
 use wcf\system\exception\InvalidObjectArgument;
@@ -49,7 +50,7 @@ final class StreamOptionFormDataProcessor extends AbstractFormDataProcessor
 
     public function processObjectData(IFormDocument $document, array $data, IStorableObject $object): array
     {
-        if (!($object instanceof Stream)) {
+        if (!($object instanceof Stream || $object instanceof StreamEndpoint)) {
             throw new InvalidObjectArgument($object, Stream::class);
         }
 

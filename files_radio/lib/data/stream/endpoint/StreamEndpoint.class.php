@@ -18,6 +18,7 @@ use wcf\system\request\IRouteController;
  * @property-read   string  $path       path of the stream endpoint
  * @property-read   array $config      array with config data of the stream endpoint entry
  * @property-read   int $isDefault      is `1` if the stream endpoint is the default stream endpoint on this stream, otherwise `0`
+ * @property-read   int $isDisabled     is `1` if the stream endpoint is disabled and thus neither accessible nor selectable, otherwise `0`
  * @property-read   int $showOrder      position of the stream endpoint in relation on this stream
  */
 final class StreamEndpoint extends DatabaseObject implements IRouteController

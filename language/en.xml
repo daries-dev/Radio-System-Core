@@ -14,6 +14,7 @@
             <item name="radio.acp.stream.endpoint.add"><![CDATA[Add Endpoint]]></item>
             <item name="radio.acp.stream.endpoint.edit"><![CDATA[Edit Endpoint]]></item>
             <item name="radio.acp.stream.endpoint.list"><![CDATA[Endpoints]]></item>
+            <item name="radio.acp.stream.endpoint.noneAvailable"><![CDATA[No endpoints have been added yet for `{$__stream->getTitle()}`.]]></item>
             <item name="radio.acp.stream.error.noStreamTypes"><![CDATA[You need installed minimum one stream type.]]></item>
             <item name="radio.acp.stream.list"><![CDATA[Streams]]></item>
             <item name="radio.acp.stream.option.endpoint.bitrate"><![CDATA[Bitrate]]></item>

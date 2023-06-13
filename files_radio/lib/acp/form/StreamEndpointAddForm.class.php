@@ -54,8 +54,8 @@ class StreamEndpointAddForm extends AbstractFormBuilderForm
         'mp3Quality' => true,
         'sampleRate' => true,
         'streamAdminPassword' => true,
-        'streamMaxUser ' => true,
-        'streamPassword ' => true,
+        'streamMaxUser' => true,
+        'streamPassword' => true,
         'streamRelayURL' => true,
     ];
 
@@ -210,7 +210,7 @@ class StreamEndpointAddForm extends AbstractFormBuilderForm
                     ->label('radio.acp.stream.option.endpoint.streamMaxUser')
                     ->description('radio.acp.stream.option.endpoint.streamMaxUser.description')
                     ->minimum(1)
-                    ->maximum($this->stream->getStreamConfig('maxUser'))
+                    ->maximum($this->stream->getShoutcastConfig('maxUser'))
                     ->value(1),
             ]);
         $optionsTab->appendChild($optionGeneralContainer);
@@ -219,7 +219,7 @@ class StreamEndpointAddForm extends AbstractFormBuilderForm
         $encoderFormField = SingleSelectionFormField::create('endpoint_encoder')
             ->label('radio.acp.stream.option.endpoint.encoder')
             ->description('radio.acp.stream.option.endpoint.encoder.description')
-            ->available($this->stream->getStreamConfig('transEnable'))
+            //->available($this->stream->getTranscoderConfig('transEnable'))
             ->options([
                 'mp3' => 'radio.acp.stream.option.endpoint.encoder.mp3',
                 'aacp' => 'radio.acp.stream.option.endpoint.encoder.aacp',
@@ -233,7 +233,7 @@ class StreamEndpointAddForm extends AbstractFormBuilderForm
                 SingleSelectionFormField::create('endpoint_bitrate')
                     ->label('radio.acp.stream.option.endpoint.bitrate')
                     ->description('radio.acp.stream.option.endpoint.bitrate.description')
-                    ->available($this->stream->getStreamConfig('transEnable'))
+                    //->available($this->stream->getTranscoderConfig('transEnable'))
                     ->options([
                         '16000' => '16000',
                         '32000' => '32000',
@@ -255,7 +255,7 @@ class StreamEndpointAddForm extends AbstractFormBuilderForm
                 SingleSelectionFormField::create('endpoint_sampleRate')
                     ->label('radio.acp.stream.option.endpoint.sampleRate')
                     ->description('radio.acp.stream.option.endpoint.sampleRate.description')
-                    ->available($this->stream->getStreamConfig('transEnable'))
+                    //->available($this->stream->getTranscoderConfig('transEnable'))
                     ->options([
                         '8000' => '8000',
                         '11025' => '11025',
@@ -271,7 +271,7 @@ class StreamEndpointAddForm extends AbstractFormBuilderForm
                 SingleSelectionFormField::create('endpoint_mp3Quality')
                     ->label('radio.acp.stream.option.endpoint.mp3Quality')
                     ->description('radio.acp.stream.option.endpoint.mp3Quality.description')
-                    ->available($this->stream->getStreamConfig('transEnable'))
+                    //->available($this->stream->getTranscoderConfig('transEnable'))
                     ->options([
                         '0' => 'radio.acp.stream.option.endpoint.mp3Quality.fast',
                         '1' => 'radio.acp.stream.option.endpoint.mp3Quality.high',
@@ -285,7 +285,7 @@ class StreamEndpointAddForm extends AbstractFormBuilderForm
                 SingleSelectionFormField::create('endpoint_mp3Mode')
                     ->label('radio.acp.stream.option.endpoint.mp3Mode')
                     ->description('radio.acp.stream.option.endpoint.mp3Mode.description')
-                    ->available($this->stream->getStreamConfig('transEnable'))
+                    //->available($this->stream->getTranscoderConfig('transEnable'))
                     ->options([
                         '0' => 'radio.acp.stream.option.endpoint.mp3Mode0',
                         '1' => 'radio.acp.stream.option.endpoint.mp3Mode1',
@@ -310,7 +310,7 @@ class StreamEndpointAddForm extends AbstractFormBuilderForm
                 UrlFormField::create('endpoint_streamRelayURL')
                 ->label('radio.acp.stream.option.endpoint.streamRelayURL')
                 ->description('radio.acp.stream.option.endpoint.streamRelayURL.description')
-                ->available($this->stream->getStreamConfig('streamAllowRelay')),
+                //->available($this->stream->getShoutcastConfig('streamAllowRelay')),
             ]);
         $optionsTab->appendChild($optionRelayContainer);
     }
