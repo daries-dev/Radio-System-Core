@@ -506,13 +506,13 @@ class StreamAddForm extends AbstractFormBuilderForm
     {
         foreach ($this->availableShoutcastOptions as $property => $isDataProperty) {
             $this->form->getDataHandler()->addProcessor(
-                new StreamOptionFormDataProcessor($property, 'shoutcast_', $isDataProperty)
+                new StreamOptionFormDataProcessor($property, 'shoutcast_', $isDataProperty, 'shoutcast')
             );
         }
 
         foreach ($this->availableTranscoderOptions as $property => $isDataProperty) {
             $this->form->getDataHandler()->addProcessor(
-                new StreamOptionFormDataProcessor($property, 'transcoder_', $isDataProperty)
+                new StreamOptionFormDataProcessor($property, 'transcoder_', $isDataProperty, 'transcoder')
             );
         }
 

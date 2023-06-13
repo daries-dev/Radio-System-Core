@@ -22,25 +22,30 @@ final class StreamOptionFormDataProcessor extends AbstractFormDataProcessor
     /**
      * Initializes a new StreamOptionFormDataProcessor object.
      */
-    public function __construct(readonly string $property, readonly string $prefix, readonly bool $isDataProperty = true)
-    {
+    public function __construct(
+        readonly string $property,
+        readonly string $prefix,
+        readonly bool $isDataProperty = true,
+        readonly ?string $category = null
+    ) {
     }
 
     public function processFormData(IFormDocument $document, array $parameters)
     {
         $property = $this->prefix . $this->property;
 
-        if (!isset($parameters['data']['config']) || !\is_array($parameters['data']['config'])) {
-            $parameters['data']['config'] = [];
+        $config = $this->category === null ? $parameters['data']['config'] : $parameters['data']['config'][$this->category];
+        if (!isset($config) || !\is_array($config)) {
+            $config = [];
         }
 
         if ($this->isDataProperty) {
             if (\array_key_exists($property, $parameters['data'])) {
-                $parameters['data']['config'][$this->property] = $parameters['data'][$property];
+                $config[$this->property] = $parameters['data'][$property];
                 unset($parameters['data'][$property]);
             }
         } elseif (\array_key_exists($property, $parameters)) {
-            $parameters['data']['config'][$this->property] = $parameters[$property];
+            $config[$this->property] = $parameters[$property];
             unset($parameters[$property]);
         }
 
@@ -53,8 +58,9 @@ final class StreamOptionFormDataProcessor extends AbstractFormDataProcessor
             throw new InvalidObjectArgument($object, Stream::class);
         }
 
-        if (isset($data['config'][$this->property])) {
-            $data[$this->prefix . $this->property] = $data['config'][$this->property];
+        $config = $this->category === null ? $data['config'] : $data['config'][$this->category];
+        if (isset($config[$this->property])) {
+            $data[$this->prefix . $this->property] = $config[$this->property];
         }
 
         return $data;
